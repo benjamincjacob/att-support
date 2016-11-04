@@ -1,8 +1,15 @@
+---
+declared-services:
+  conversation-service:
+    label: conversation
+    plan: free
 applications:
-- path: .
+- name: att-demo-chat
+  command: npm start
+  path: .
   memory: 256M
   instances: 1
-  domain: mybluemix.net
-  name: att-support
-  host: att-support
-  disk_quota: 1024M
+  services:
+  - Conversation-att
+  env:
+    NPM_CONFIG_PRODUCTION: false
